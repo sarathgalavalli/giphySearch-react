@@ -49,9 +49,13 @@ You must use React. Typescript is not a requirement, but if you want, please don
 1. It handles errors nicely
 1. You don't reinvent the wheel
 
-## Do what you think 'feels good'
+## Do what you think makes a good user experience
 
-We're interested in learning what you think makes an app feel good to use. Please spend some time thinking about positive user experiences you've had online and try to bring a bit of that into your work.
+We're interested in learning what you think makes an app feel good to use.
+Please spend some time thinking about great experiences you've had using webapps and try to bring a
+ bit of that into your work.
+ 
+Please do not spend any time on the back-end infrastructure as that will not be assessed in this task. 
 
 ## Building and running on localhost
 
