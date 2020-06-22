@@ -12,8 +12,11 @@ A Giphy search interface - in a yet-to-be-completed state.
 
 ## Submitting your work
 
-When you have finished, please push your commits and add Dave Elkan (dave@easyagile.com) as a read-only collaborator of your repo and let me know via
-email that you have finished. 
+When you have finished, please create a git running the command below (substituting your name) and attach it to your Jira Service Desk job application issue.
+
+```
+git bundle create your-name.git --all
+```
 
 ## Requirements
 
