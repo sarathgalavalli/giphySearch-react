@@ -10,14 +10,6 @@ A Giphy search interface - in a yet-to-be-completed state.
 1. Please don't spend all weekend on this task. A rough guide is about six hours of work.
 1. This task is for you. Please ensure you complete all of the work by yourself. The code you write is your own and in your own repo. Please ensure it actually is yours. i.e. No copying and pasting from existing projects.
 
-## Submitting your work
-
-When you have finished, please create a git running the command below (substituting your name) and attach it to your Jira Service Desk job application issue.
-
-```
-git bundle create your-name.git --all
-```
-
 ## Requirements
 
 We want you to create a search interface for Giphy. To do so, you will need to sign up to create a Giphy App and obtain an API key. [You can do so here][1].
@@ -83,6 +75,14 @@ npm run build-prod
 ## Running
 
 Open the file `dist/index.html` in your browser
+
+## Submitting your work
+
+When you have finished, please create a git running the command below (substituting your name) and attach it to your Jira Service Desk job application issue.
+
+```
+git bundle create your-name.git --all
+```
 
 ## Credits
 
