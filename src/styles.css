@@ -2,3 +2,25 @@ body {
   color: white;
   background-color: orange;
 }
+
+.app {
+  border: 1px solid black;
+  width: 75%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.div {
+  padding: 10px;
+  align-items: centre;
+  background-size: contain;
+  background-size: 100% 100%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.img {
+  display: flex;
+  border: 1px solid black;
+  padding: 10px;
+}
