@@ -4,109 +4,59 @@ import "./styles.css";
 import "./styles.scss";
 import "./styles.less";
 
-// class App extends React.Component {
-//   render() {
-//     return (
-//       <div>
-//         <Search />
-//       </div>
-//     );
-//   }
-// }
-
-class Search extends React.Component {
+class Gifs extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchText: "",
+      gifs: [],
     };
   }
-  onSearchChange(e) {
-    this.setState({ searchText: e.target.value });
-  }
 
-  onSubmit(e) {
-    e.preventDefault();
-    this.props.onSearch(this.state.searchText);
-    e.currentTarget.reset();
+  componentDidMount() {
+    const url = `http://api.giphy.com/v1/gifs/search?q=${this.props.query}&api_key=sCC77F9tN1exjCSgRdhiyzv01tBcdhWg&limit=20`;
+
+    fetch(url)
+      .then((respone) => respone.json())
+      .then((d) => {
+        this.setState({
+          gifs: d.data,
+        });
+      })
+      .catch((error) => console.log(error));
+  }
+  renderItems() {
+    return this.state.gifs.map((gif) => (
+      <Gif key={gif.id} gif={gif.images.original.url} />
+    ));
   }
 
   render() {
+    return <div className="row"> {this.renderItems()}</div>;
+  }
+}
+
+class Gif extends React.Component {
+  render() {
     return (
       <div>
-        <form onSubmit={this.onSubmit.bind(this)}>
-          <input
-            type="search"
-            onChange={this.onSearchChange.bind(this)}
-            name="search"
-            ref="query"
-          ></input>
-          <button type="submit">Search</button>
-        </form>
+        <img src={this.props.gif} height="150" width="150" />
       </div>
     );
   }
 }
 
-// const onFormSubmit = (e) => {
-//   e.preventDefault();
-//   const keyword = e.target.elements.keyword.value;
-
-//   if (keyword) {
-//     e.target.elements.keyword.value = "";
-//     const url = `http://api.giphy.com/v1/gifs/search?q=${keyword}&api_key=sCC77F9tN1exjCSgRdhiyzv01tBcdhWg&limit=15`;
-//     const result = fetch(url).then((response) => {
-//       return response.json();
-//     });
-//     <Item item={result} />;
-//   }
-// };
-
-class Item extends React.Component {
-  render() {
-    return <img src={this.props.url} height="150" width="150" />;
-  }
-}
-
-class ItemList extends React.Component {
-  render() {
-    const results = this.props.data;
-    let items = results.map((item) => (
-      <Item url={item.images.original.url} key={item.id} />
-    ));
-
-    return <ul>{items}</ul>;
-  }
-}
-
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      items: [],
-      url: ``,
+      query: "world",
     };
   }
 
-  performSearch(query) {
-    fetch(
-      `https://api.giphy.com/v1/gifs/search?q=${query}&limit=24&api_key=sCC77F9tN1exjCSgRdhiyzv01tBcdhWg&limit=15`
-    )
-      .then((response) => response.json())
-      .then((responseData) => {
-        this.setState({ items: responseData.data });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
   render() {
-    console.log(this.state.items);
     return (
       <div>
-        <Search onSearch={this.performSearch.bind(this)} />
-        <ItemList data={this.state.items} />
+        <Gifs query={this.state.query} />
       </div>
     );
   }
