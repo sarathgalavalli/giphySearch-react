@@ -24,3 +24,28 @@
   border: 1px solid black;
   padding: 10px;
 } */
+.main {
+  margin-top: 25px;
+}
+.form {
+  text-align: center;
+  padding-top: 10px;
+}
+.input {
+  border-radius: 10;
+}
+.main1 {
+  display: flex;
+  width: 100%;
+
+  text-align: center;
+  padding: 30px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.button {
+  margin: 5px;
+}
+.singleBlock {
+  padding: 20px;
+}
